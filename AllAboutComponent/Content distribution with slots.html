@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style type="text/css">
+        .frame {
+            border: 5px dashed dodgerblue;
+            width: 300px;
+        }
+        h3, figcaption {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 2px 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <framed>
+        <cat :name="catName"></cat>
+    </framed>
+</div>
+
+<script>
+    Vue.component('framed', {
+        template: `<div class="frame">
+                    <h3>Russian cat mafia
+                    employee of the month</h3>
+                    <slot>Nothing framed.</slot>
+                    </div>`
+    });
+
+    Vue.component('cat', {
+        template: `<div>
+		<figure>
+		<img src="http://lorempixel.com/220/220/cats/"/>
+		<figcaption>{{name}}</figcaption>
+		</figure>
+		</div>`,
+        props: ['name']
+    });
+
+
+
+    new Vue({
+        el: '#app',
+        data: {
+            names: ['Murzik', 'Pushok', 'Barsik', 'Vaska', 'Matroskin']
+        },
+        computed: {
+            catName () {
+                return this.names[Math.floor(Math.random() *
+                    this.names.length)]
+            }
+        }
+    })
+</script>
+</body>
+</html>

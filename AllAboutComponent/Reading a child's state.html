@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vuex"></script>
+</head>
+<body>
+<div id="app">
+    <child ref="junior"></child>
+    <p>Truth: {{childStomach}}</p>
+</div>
+<script>
+    Vue.component('child', {
+        template: "<p>{{mouth}}</p>",
+        data () {
+            return {
+                mouth: 'I didnt eat that cookie',
+                stomach: 'Yummy that cookie was delicious.'
+            }
+        }
+    });
+    new Vue({
+        el: '#app',
+        data: {
+            childStomach: 'unknown'
+        },
+        mounted () {
+            this.childStomach = this.$refs.junior.stomach;
+        }
+    });
+</script>
+
+</body>
+</html>

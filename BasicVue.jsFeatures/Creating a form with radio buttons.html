@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style type="text/css">
+        .warn {
+            background-color: mistyrose;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <form>
+        <fieldset>
+            <legend>Choose your gender</legend>
+            <label>
+                <input type="radio" v-model="gender" :value="genders[0]"/>
+                {{genders[0]}}
+            </label><br>
+            <label>
+                <input type="radio" v-model="gender" value="female"/>
+                Female
+            </label> <br>
+            <label>
+                <input type="radio" v-model="gender" value="alien"/>
+                Alien
+            </label>
+        </fieldset>
+    </form>
+    Choosen gender: '{{ gender }}'
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            animals: [' ', ' ', ' '],
+            animal: undefined,
+            farm: [],
+            i: 0
+        },
+        computed: {
+            longText () {
+                if(this.limit - this.memeText.length <= 10) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

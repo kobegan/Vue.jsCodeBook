@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style type="text/css">
+        .super {
+            filter: hue-rotate(120deg);
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <man></man>
+    <cat></cat>
+</div>
+
+<script>
+    var superPowersMixin = {
+        data () {
+            return {
+                superPowers: false
+            }
+        },
+        methods: {
+            superMe () {
+                this.$el.classList.add("super")
+                this.superPowers = true
+            }
+        },
+        created () {
+            this.$options.template =
+                `<div><h3 v-show="superPowers">super</h3>` +
+                this.$options.template +
+                `<button @click="superMe" v-if="!superPowers">Super!</button></div>`
+        }
+    };
+
+    Vue.component('man', {
+        template: '<p>👨man</p>',
+        mixins: [superPowersMixin]
+    });
+
+    Vue.component('cat', {
+        template: '<p>🐱cat</p>',
+        mixins: [superPowersMixin]
+    });
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+
+</body>
+</html>

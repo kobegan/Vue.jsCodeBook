@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+    <light-bulb></light-bulb>
+    <light-bulb></light-bulb>
+    <light-bulb></light-bulb>
+</div>
+
+<script>
+    Vue.component('light-bulb', {
+        template: '<div class="lightBlub"><p>blub Eureka!</p></div>'
+    });
+    new Vue({
+        el : '#app'
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" type="text/css" href="animate.css"></link>
+    <!--https://emojipedia.org-->
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+
+<div id="app">
+    <button @click="taxiCalled = true">
+        Call a cab
+    </button>
+    <transition enter-active-class="animated slideInRight">
+        <p v-if="taxiCalled">🚓🚗</p>
+    </transition>
+</div>
+
+
+<script>
+    new Vue({
+        el : '#app',
+        data : {
+            taxiCalled: false
+        }
+    })
+</script>
+
+</body>
+</html>
