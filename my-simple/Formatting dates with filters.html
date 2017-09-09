@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.js"></script>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div id="app">
+    La prise de la Bastille, survenue le {{bastilleStormingDate | date('en')}}
+</div>
+
+<script>
+    Vue.filter('date', function (date, locale) {
+        moment.locale(locale)
+        return moment(date).format('LL')
+    });
+
+
+    new Vue({
+        el: '#app',
+        data: {
+            bastilleStormingDate: '1789-07-14 17 h'
+        }
+    })
+</script>
+</body>
+</html>
