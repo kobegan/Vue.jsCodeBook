@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using Jasmine for testing Vue</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine.css" type="text/css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/boot.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{greeting}}</p>
+    <h1>Welcome</h1>
+</div>
+
+<script>
+    let app  = new Vue({
+        el: '#app',
+        data: {
+            greeting: 'Hello'
+        }
+    });
+
+    describe('my app', () => {
+        it('should say Hello', () => {
+            expect(document.querySelector('p').innerText).toContain('Hello');
+            });
+        it('should have an header that says `Welcome`', () => {
+           expect(document.querySelector('h1').innerText).toContain('Welcome');
+        });
+    });
+
+</script>
+</body>
+</html>

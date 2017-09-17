@@ -1,0 +1,15 @@
+{
+  "name": "Testingyourapplicationstateandmethods",
+  "version": "1.0.0",
+  "scripts": {
+    "init": "./node_modules/.bin/karma init",
+    "start": "./node_modules/.bin/karma start"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "vue": "^2.4.4"
+  }
+}

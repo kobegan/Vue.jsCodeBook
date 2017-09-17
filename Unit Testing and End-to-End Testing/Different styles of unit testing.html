@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Different styles of unit testing</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.5.3/mocha.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.5.3/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.1.2/chai.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{greeting}}</p>
+    </div>
+    <div id="mocha">
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                greeting: 'Hello World!'
+            }
+        });
+
+        mocha.setup('bdd');
+        chai.should();
+        describe('my app', () => {
+            vm.$el.innerText.should.contain('Hello World!');
+        });
+        mocha.run();
+    </script>
+
+
+</body>
+</html>
